@@ -2,7 +2,7 @@ NAME
     Business::ID::BCA - Parse/validate BCA account number
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
      use Business::ID::BCA::Account qw(parse_bca_account);
@@ -43,7 +43,7 @@ FUNCTIONS
 
     *   *code* (ID field): Code
 
-    *   *address*: Address
+    *   *name*: Name
 
     *   *city_name*: City name
 
@@ -54,46 +54,6 @@ FUNCTIONS
     *   *note*
 
     Arguments ('*' denotes required arguments):
-
-    *   address => *str*
-
-        Only return records where the 'address' field equals specified
-        value.
-
-    *   address.contains => *str*
-
-        Only return records where the 'address' field contains specified
-        text.
-
-    *   address.is => *str*
-
-        Only return records where the 'address' field equals specified
-        value.
-
-    *   address.max => *str*
-
-        Only return records where the 'address' field is less than or equal
-        to specified value.
-
-    *   address.min => *array*
-
-        Only return records where the 'address' field is greater than or
-        equal to specified value.
-
-    *   address.not_contains => *str*
-
-        Only return records where the 'address' field does not contain a
-        certain text.
-
-    *   address.xmax => *str*
-
-        Only return records where the 'address' field is less than specified
-        value.
-
-    *   address.xmin => *array*
-
-        Only return records where the 'address' field is greater than
-        specified value.
 
     *   city_code => *str*
 
@@ -259,6 +219,43 @@ FUNCTIONS
 
         Select fields to return.
 
+    *   name => *str*
+
+        Only return records where the 'name' field equals specified value.
+
+    *   name.contains => *str*
+
+        Only return records where the 'name' field contains specified text.
+
+    *   name.is => *str*
+
+        Only return records where the 'name' field equals specified value.
+
+    *   name.max => *str*
+
+        Only return records where the 'name' field is less than or equal to
+        specified value.
+
+    *   name.min => *array*
+
+        Only return records where the 'name' field is greater than or equal
+        to specified value.
+
+    *   name.not_contains => *str*
+
+        Only return records where the 'name' field does not contain a
+        certain text.
+
+    *   name.xmax => *str*
+
+        Only return records where the 'name' field is less than specified
+        value.
+
+    *   name.xmin => *array*
+
+        Only return records where the 'name' field is greater than specified
+        value.
+
     *   note => *str*
 
         Only return records where the 'note' field equals specified value.
@@ -346,7 +343,7 @@ FUNCTIONS
 
     *   "branch_code"
 
-    *   "branch_address"
+    *   "branch_name"
 
     *   "branch_city_name" (not yet)
 

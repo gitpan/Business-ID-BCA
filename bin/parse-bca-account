@@ -6,7 +6,7 @@ use warnings;
 
 use Perinci::CmdLine;
 
-our $VERSION = '0.02'; # VERSION
+our $VERSION = '0.03'; # VERSION
 
 Perinci::CmdLine->new(url=>'/Business/ID/BCA/parse_bca_account')->run;
 
@@ -14,8 +14,8 @@ Perinci::CmdLine->new(url=>'/Business/ID/BCA/parse_bca_account')->run;
 # ABSTRACT: Parse BCA account number
 # PODNAME: parse-bca-account
 
-
 __END__
+
 =pod
 
 =encoding utf-8
@@ -26,7 +26,7 @@ parse-bca-account - Parse BCA account number
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -34,7 +34,7 @@ version 0.02
 
 =head1 DESCRIPTION
 
-This is a command-line interface for the <parse_bca_account> function in
+This is a command-line interface for the C<parse_bca_account> function in
 L<Business::ID::BCA>.
 
 =head1 AUTHOR
@@ -49,4 +49,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

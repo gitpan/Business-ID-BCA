@@ -6,7 +6,7 @@ use warnings;
 
 use Perinci::Sub::Gen::AccessTable qw(gen_read_table_func);
 
-our $VERSION = '0.03'; # VERSION
+our $VERSION = '0.04'; # VERSION
 
 our %SPEC;
 
@@ -1107,7 +1107,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -1115,7 +1115,7 @@ Business::ID::BCA - Parse/validate BCA account number
 
 =head1 VERSION
 
-version 0.03
+This document describes version 0.04 of Business::ID::BCA (from Perl distribution Business-ID-BCA), released on 2014-07-22.
 
 =head1 SYNOPSIS
 
@@ -1133,71 +1133,14 @@ the Gudang Data project (http://github.com/sharyanto/gudangdata ).
 Indonesian keywords: struktur nomor rekening BCA, format rekening BCA, daftar
 kode cabang BCA
 
-=head1 BUGS/NOTES
-
-Check digit checking is not implemented yet. Anybody knows the algorithm used?
-
-=head1 AUTHOR
-
-Steven Haryanto <stevenharyanto@gmail.com>
-
-=head1 COPYRIGHT AND LICENSE
-
-This software is copyright (c) 2013 by Steven Haryanto.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
-
 =head1 FUNCTIONS
 
 
-None are exported by default, but they are exportable.
-
 =head2 list_bca_branches(%args) -> [status, msg, result, meta]
 
+BCA branches.
+
 REPLACE ME
-
-Data is in table form. Table fields are as follow:
-
-=over
-
-=item -
-
-I<code> (ID field): Code
-
-
-
-=item -
-
-I<name>: Name
-
-
-
-=item -
-
-I<city_name>: City name
-
-
-
-=item -
-
-I<city_code>: City code, TBD
-
-
-
-=item -
-
-I<ctime>
-
-
-
-=item -
-
-I<note>
-
-
-
-=back
 
 Arguments ('*' denotes required arguments):
 
@@ -1211,27 +1154,39 @@ Only return records where the 'city_code' field equals specified value.
 
 Only return records where the 'city_code' field contains specified text.
 
+=item * B<city_code.in> => I<array>
+
+Only return records where the 'city_code' field is in the specified values.
+
 =item * B<city_code.is> => I<str>
 
 Only return records where the 'city_code' field equals specified value.
+
+=item * B<city_code.isnt> => I<str>
+
+Only return records where the 'city_code' field does not equal specified value.
 
 =item * B<city_code.max> => I<str>
 
 Only return records where the 'city_code' field is less than or equal to specified value.
 
-=item * B<city_code.min> => I<array>
+=item * B<city_code.min> => I<str>
 
 Only return records where the 'city_code' field is greater than or equal to specified value.
 
 =item * B<city_code.not_contains> => I<str>
 
-Only return records where the 'city_code' field does not contain a certain text.
+Only return records where the 'city_code' field does not contain specified text.
+
+=item * B<city_code.not_in> => I<array>
+
+Only return records where the 'city_code' field is not in the specified values.
 
 =item * B<city_code.xmax> => I<str>
 
 Only return records where the 'city_code' field is less than specified value.
 
-=item * B<city_code.xmin> => I<array>
+=item * B<city_code.xmin> => I<str>
 
 Only return records where the 'city_code' field is greater than specified value.
 
@@ -1243,27 +1198,39 @@ Only return records where the 'city_name' field equals specified value.
 
 Only return records where the 'city_name' field contains specified text.
 
+=item * B<city_name.in> => I<array>
+
+Only return records where the 'city_name' field is in the specified values.
+
 =item * B<city_name.is> => I<str>
 
 Only return records where the 'city_name' field equals specified value.
+
+=item * B<city_name.isnt> => I<str>
+
+Only return records where the 'city_name' field does not equal specified value.
 
 =item * B<city_name.max> => I<str>
 
 Only return records where the 'city_name' field is less than or equal to specified value.
 
-=item * B<city_name.min> => I<array>
+=item * B<city_name.min> => I<str>
 
 Only return records where the 'city_name' field is greater than or equal to specified value.
 
 =item * B<city_name.not_contains> => I<str>
 
-Only return records where the 'city_name' field does not contain a certain text.
+Only return records where the 'city_name' field does not contain specified text.
+
+=item * B<city_name.not_in> => I<array>
+
+Only return records where the 'city_name' field is not in the specified values.
 
 =item * B<city_name.xmax> => I<str>
 
 Only return records where the 'city_name' field is less than specified value.
 
-=item * B<city_name.xmin> => I<array>
+=item * B<city_name.xmin> => I<str>
 
 Only return records where the 'city_name' field is greater than specified value.
 
@@ -1275,27 +1242,39 @@ Only return records where the 'code' field equals specified value.
 
 Only return records where the 'code' field contains specified text.
 
+=item * B<code.in> => I<array>
+
+Only return records where the 'code' field is in the specified values.
+
 =item * B<code.is> => I<str>
 
 Only return records where the 'code' field equals specified value.
+
+=item * B<code.isnt> => I<str>
+
+Only return records where the 'code' field does not equal specified value.
 
 =item * B<code.max> => I<str>
 
 Only return records where the 'code' field is less than or equal to specified value.
 
-=item * B<code.min> => I<array>
+=item * B<code.min> => I<str>
 
 Only return records where the 'code' field is greater than or equal to specified value.
 
 =item * B<code.not_contains> => I<str>
 
-Only return records where the 'code' field does not contain a certain text.
+Only return records where the 'code' field does not contain specified text.
+
+=item * B<code.not_in> => I<array>
+
+Only return records where the 'code' field is not in the specified values.
 
 =item * B<code.xmax> => I<str>
 
 Only return records where the 'code' field is less than specified value.
 
-=item * B<code.xmin> => I<array>
+=item * B<code.xmin> => I<str>
 
 Only return records where the 'code' field is greater than specified value.
 
@@ -1307,27 +1286,39 @@ Only return records where the 'ctime' field equals specified value.
 
 Only return records where the 'ctime' field contains specified text.
 
+=item * B<ctime.in> => I<array>
+
+Only return records where the 'ctime' field is in the specified values.
+
 =item * B<ctime.is> => I<str>
 
 Only return records where the 'ctime' field equals specified value.
+
+=item * B<ctime.isnt> => I<str>
+
+Only return records where the 'ctime' field does not equal specified value.
 
 =item * B<ctime.max> => I<str>
 
 Only return records where the 'ctime' field is less than or equal to specified value.
 
-=item * B<ctime.min> => I<array>
+=item * B<ctime.min> => I<str>
 
 Only return records where the 'ctime' field is greater than or equal to specified value.
 
 =item * B<ctime.not_contains> => I<str>
 
-Only return records where the 'ctime' field does not contain a certain text.
+Only return records where the 'ctime' field does not contain specified text.
+
+=item * B<ctime.not_in> => I<array>
+
+Only return records where the 'ctime' field is not in the specified values.
 
 =item * B<ctime.xmax> => I<str>
 
 Only return records where the 'ctime' field is less than specified value.
 
-=item * B<ctime.xmin> => I<array>
+=item * B<ctime.xmin> => I<str>
 
 Only return records where the 'ctime' field is greater than specified value.
 
@@ -1349,27 +1340,39 @@ Only return records where the 'name' field equals specified value.
 
 Only return records where the 'name' field contains specified text.
 
+=item * B<name.in> => I<array>
+
+Only return records where the 'name' field is in the specified values.
+
 =item * B<name.is> => I<str>
 
 Only return records where the 'name' field equals specified value.
+
+=item * B<name.isnt> => I<str>
+
+Only return records where the 'name' field does not equal specified value.
 
 =item * B<name.max> => I<str>
 
 Only return records where the 'name' field is less than or equal to specified value.
 
-=item * B<name.min> => I<array>
+=item * B<name.min> => I<str>
 
 Only return records where the 'name' field is greater than or equal to specified value.
 
 =item * B<name.not_contains> => I<str>
 
-Only return records where the 'name' field does not contain a certain text.
+Only return records where the 'name' field does not contain specified text.
+
+=item * B<name.not_in> => I<array>
+
+Only return records where the 'name' field is not in the specified values.
 
 =item * B<name.xmax> => I<str>
 
 Only return records where the 'name' field is less than specified value.
 
-=item * B<name.xmin> => I<array>
+=item * B<name.xmin> => I<str>
 
 Only return records where the 'name' field is greater than specified value.
 
@@ -1381,27 +1384,39 @@ Only return records where the 'note' field equals specified value.
 
 Only return records where the 'note' field contains specified text.
 
+=item * B<note.in> => I<array>
+
+Only return records where the 'note' field is in the specified values.
+
 =item * B<note.is> => I<str>
 
 Only return records where the 'note' field equals specified value.
+
+=item * B<note.isnt> => I<str>
+
+Only return records where the 'note' field does not equal specified value.
 
 =item * B<note.max> => I<str>
 
 Only return records where the 'note' field is less than or equal to specified value.
 
-=item * B<note.min> => I<array>
+=item * B<note.min> => I<str>
 
 Only return records where the 'note' field is greater than or equal to specified value.
 
 =item * B<note.not_contains> => I<str>
 
-Only return records where the 'note' field does not contain a certain text.
+Only return records where the 'note' field does not contain specified text.
+
+=item * B<note.not_in> => I<array>
+
+Only return records where the 'note' field is not in the specified values.
 
 =item * B<note.xmax> => I<str>
 
 Only return records where the 'note' field is less than specified value.
 
-=item * B<note.xmin> => I<array>
+=item * B<note.xmin> => I<str>
 
 Only return records where the 'note' field is greater than specified value.
 
@@ -1440,9 +1455,21 @@ as list/array (field value, field value, ...).
 
 Return value:
 
-Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
+Returns an enveloped result (an array).
+
+First element (status) is an integer containing HTTP status code
+(200 means OK, 4xx caller error, 5xx function error). Second element
+(msg) is a string containing error message, or 'OK' if status is
+200. Third element (result) is optional, the actual result. Fourth
+element (meta) is called result metadata and is optional, a hash
+that contains extra information.
+
+ (any)
+
 
 =head2 parse_bca_account(%args) -> [status, msg, result, meta]
+
+Parse/validate BCA account number.
 
 Upon success/valid number, return status 200 with hash containing parsed
 information. Upon invalid number, return 400. Parsed information contains these
@@ -1450,45 +1477,21 @@ keys:
 
 =over
 
-=item -
+=item * C<branch_code>
 
-C<branch_code>
+=item * C<branch_name>
 
+=item * C<branch_city_name> (not yet)
 
-=item -
+=item * C<branch_city_code> (not yet)
 
-C<branch_name>
+=item * C<account> (10-digits)
 
+=item * C<account_f> (canonically-formatted account number, e.g. 123.456789.0)
 
-=item -
+=item * C<is_checking> (bool, true if detected as checking account [giro])
 
-C<branch_city_name> (not yet)
-
-
-=item -
-
-C<branch_city_code> (not yet)
-
-
-=item -
-
-C<account> (10-digits)
-
-
-=item -
-
-C<account_f> (canonically-formatted account number, e.g. 123.456789.0)
-
-
-=item -
-
-C<is_checking> (bool, true if detected as checking account [giro])
-
-
-=item -
-
-C<check_digit>
-
+=item * C<check_digit>
 
 =back
 
@@ -1508,6 +1511,46 @@ List of known branches
 
 Return value:
 
-Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
+Returns an enveloped result (an array).
+
+First element (status) is an integer containing HTTP status code
+(200 means OK, 4xx caller error, 5xx function error). Second element
+(msg) is a string containing error message, or 'OK' if status is
+200. Third element (result) is optional, the actual result. Fourth
+element (meta) is called result metadata and is optional, a hash
+that contains extra information.
+
+ (any)
+
+=head1 BUGS/NOTES
+
+Check digit checking is not implemented yet. Anybody knows the algorithm used?
+
+=head1 HOMEPAGE
+
+Please visit the project's homepage at L<https://metacpan.org/release/Business-ID-BCA>.
+
+=head1 SOURCE
+
+Source repository is at L<https://github.com/sharyanto/perl-Business-ID-BCA>.
+
+=head1 BUGS
+
+Please report any bugs or feature requests on the bugtracker website L<https://rt.cpan.org/Public/Dist/Display.html?Name=Business-ID-BCA>
+
+When submitting a bug or request, please include a test-file or a
+patch to an existing test-file that illustrates the bug or desired
+feature.
+
+=head1 AUTHOR
+
+Steven Haryanto <stevenharyanto@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2014 by Steven Haryanto.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut

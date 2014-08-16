@@ -1,17 +1,22 @@
 #!perl
 
-use 5.010;
+# Note: This script is a CLI interface to Riap function /Business/ID/BCA/list_bca_branches
+# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.01
+
+our $DATE = '2014-08-16'; # DATE
+our $VERSION = '0.05'; # VERSION
+
+use 5.010001;
 use strict;
 use warnings;
 
-use Perinci::CmdLine::Any;
+use Perinci::CmdLine::Any -prefer_lite=>1;
 
-our $VERSION = '0.04'; # VERSION
+Perinci::CmdLine::Any->new(
+    url => "/Business/ID/BCA/list_bca_branches",
+)->run;
 
-Perinci::CmdLine::Any->new(url=>'/Business/ID/BCA/list_bca_branches')->run;
-
-1;
-# ABSTRACT: List BCA branches
+# ABSTRACT: BCA branches
 # PODNAME: list-bca-branches
 
 __END__
@@ -22,20 +27,33 @@ __END__
 
 =head1 NAME
 
-list-bca-branches - List BCA branches
+list-bca-branches - BCA branches
 
 =head1 VERSION
 
-This document describes version 0.04 of list-bca-branches (from Perl distribution Business-ID-BCA), released on 2014-07-22.
+This document describes version 0.05 of list-bca-branches (from Perl distribution Business-ID-BCA), released on 2014-08-16.
 
 =head1 SYNOPSIS
+
+Usage:
+
+ % list-bca-branches
+
+Examples:
+
+ TODO
+
+To see all options:
 
  % list-bca-branches --help
 
 =head1 DESCRIPTION
 
-This is a command-line interface for the C<list_bca_branches> function in
-L<Business::ID::BCA>.
+REPLACE ME
+
+=head1 OPTIONS
+
+ TODO
 
 =head1 HOMEPAGE
 

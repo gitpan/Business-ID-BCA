@@ -2,8 +2,8 @@ NAME
     Business::ID::BCA - Parse/validate BCA account number
 
 VERSION
-    This document describes version 0.04 of Business::ID::BCA (from Perl
-    distribution Business-ID-BCA), released on 2014-07-22.
+    This document describes version 0.05 of Business::ID::BCA (from Perl
+    distribution Business-ID-BCA), released on 2014-08-16.
 
 SYNOPSIS
      use Business::ID::BCA::Account qw(parse_bca_account);

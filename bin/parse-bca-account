@@ -1,17 +1,22 @@
 #!perl
 
-use 5.010;
+# Note: This script is a CLI interface to Riap function /Business/ID/BCA/parse_bca_account
+# and generated automatically using Dist::Zilla::Plugin::Rinci::ScriptFromFunc version 0.01
+
+our $DATE = '2014-08-16'; # DATE
+our $VERSION = '0.05'; # VERSION
+
+use 5.010001;
 use strict;
 use warnings;
 
-use Perinci::CmdLine::Any;
+use Perinci::CmdLine::Any -prefer_lite=>1;
 
-our $VERSION = '0.04'; # VERSION
+Perinci::CmdLine::Any->new(
+    url => "/Business/ID/BCA/parse_bca_account",
+)->run;
 
-Perinci::CmdLine::Any->new(url=>'/Business/ID/BCA/parse_bca_account')->run;
-
-1;
-# ABSTRACT: Parse BCA account number
+# ABSTRACT: Parse/validate BCA account number
 # PODNAME: parse-bca-account
 
 __END__
@@ -22,20 +27,55 @@ __END__
 
 =head1 NAME
 
-parse-bca-account - Parse BCA account number
+parse-bca-account - Parse/validate BCA account number
 
 =head1 VERSION
 
-This document describes version 0.04 of parse-bca-account (from Perl distribution Business-ID-BCA), released on 2014-07-22.
+This document describes version 0.05 of parse-bca-account (from Perl distribution Business-ID-BCA), released on 2014-08-16.
 
 =head1 SYNOPSIS
 
- % parse-bca-account '123.456789.0'
+Usage:
+
+ % parse-bca-account
+
+Examples:
+
+ TODO
+
+To see all options:
+
+ % parse-bca-account --help
 
 =head1 DESCRIPTION
 
-This is a command-line interface for the C<parse_bca_account> function in
-L<Business::ID::BCA>.
+Upon success/valid number, return status 200 with hash containing parsed
+information. Upon invalid number, return 400. Parsed information contains these
+keys:
+
+=over
+
+=item * C<branch_code>
+
+=item * C<branch_name>
+
+=item * C<branch_city_name> (not yet)
+
+=item * C<branch_city_code> (not yet)
+
+=item * C<account> (10-digits)
+
+=item * C<account_f> (canonically-formatted account number, e.g. 123.456789.0)
+
+=item * C<is_checking> (bool, true if detected as checking account [giro])
+
+=item * C<check_digit>
+
+=back
+
+=head1 OPTIONS
+
+ TODO
 
 =head1 HOMEPAGE
 

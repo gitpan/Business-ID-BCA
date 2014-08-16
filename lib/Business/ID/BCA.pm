@@ -6,7 +6,7 @@ use warnings;
 
 use Perinci::Sub::Gen::AccessTable qw(gen_read_table_func);
 
-our $VERSION = '0.04'; # VERSION
+our $VERSION = '0.05'; # VERSION
 
 our %SPEC;
 
@@ -1115,7 +1115,7 @@ Business::ID::BCA - Parse/validate BCA account number
 
 =head1 VERSION
 
-This document describes version 0.04 of Business::ID::BCA (from Perl distribution Business-ID-BCA), released on 2014-07-22.
+This document describes version 0.05 of Business::ID::BCA (from Perl distribution Business-ID-BCA), released on 2014-08-16.
 
 =head1 SYNOPSIS
 
